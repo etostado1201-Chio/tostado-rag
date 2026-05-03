@@ -1,0 +1,186 @@
+[
+  {
+    "name": "IT",
+    "description": "The IT department of Tostado Restaurant Group.",
+    "head": {
+      "id": "EMP-IT-001",
+      "name": "Hannah Thomas",
+      "email": "hannah.thomas@tostadogroup.com",
+      "phone": "+1-377-493-8894"
+    },
+    "admin_contact": {
+      "id": "EMP-IT-002",
+      "name": "Melissa Ponce",
+      "email": "melissa.ponce@tostadogroup.com",
+      "phone": "628.277.4786x910"
+    },
+    "team_member_ids": [
+      "EMP-IT-003",
+      "EMP-IT-004",
+      "EMP-IT-005",
+      "EMP-IT-006",
+      "EMP-IT-007",
+      "EMP-IT-008"
+    ]
+  },
+  {
+    "name": "Operations",
+    "description": "The Operations department of Tostado Restaurant Group.",
+    "head": {
+      "id": "EMP-OP-001",
+      "name": "Donna Raymond",
+      "email": "donna.raymond@tostadogroup.com",
+      "phone": "001-626-221-8922"
+    },
+    "admin_contact": {
+      "id": "EMP-OP-002",
+      "name": "Tonya Perry",
+      "email": "tonya.perry@tostadogroup.com",
+      "phone": "486.754.9660"
+    },
+    "team_member_ids": [
+      "EMP-OP-003",
+      "EMP-OP-004",
+      "EMP-OP-005",
+      "EMP-OP-006",
+      "EMP-OP-007",
+      "EMP-OP-008"
+    ]
+  },
+  {
+    "name": "Marketing",
+    "description": "The Marketing department of Tostado Restaurant Group.",
+    "head": {
+      "id": "EMP-MA-001",
+      "name": "Rebecca Ramirez",
+      "email": "rebecca.ramirez@tostadogroup.com",
+      "phone": "(294)726-7088"
+    },
+    "admin_contact": {
+      "id": "EMP-MA-002",
+      "name": "Melanie Brown",
+      "email": "melanie.brown@tostadogroup.com",
+      "phone": "937-286-2684"
+    },
+    "team_member_ids": [
+      "EMP-MA-003",
+      "EMP-MA-004",
+      "EMP-MA-005",
+      "EMP-MA-006",
+      "EMP-MA-007",
+      "EMP-MA-008",
+      "EMP-MA-009",
+      "EMP-MA-010",
+      "EMP-MA-011",
+      "EMP-MA-012"
+    ]
+  },
+  {
+    "name": "Finance",
+    "description": "The Finance department of Tostado Restaurant Group.",
+    "head": {
+      "id": "EMP-FI-001",
+      "name": "Morgan Ward",
+      "email": "morgan.ward@tostadogroup.com",
+      "phone": "+1-906-594-0978"
+    },
+    "admin_contact": {
+      "id": "EMP-FI-002",
+      "name": "Lynn Bullock",
+      "email": "lynn.bullock@tostadogroup.com",
+      "phone": "+1-271-883-4100"
+    },
+    "team_member_ids": [
+      "EMP-FI-003",
+      "EMP-FI-004",
+      "EMP-FI-005",
+      "EMP-FI-006",
+      "EMP-FI-007",
+      "EMP-FI-008",
+      "EMP-FI-009",
+      "EMP-FI-010",
+      "EMP-FI-011",
+      "EMP-FI-012"
+    ]
+  },
+  {
+    "name": "Human Resources",
+    "description": "The Human Resources department of Tostado Restaurant Group.",
+    "head": {
+      "id": "EMP-HU-001",
+      "name": "Kevin Hess",
+      "email": "kevin.hess@tostadogroup.com",
+      "phone": "737-339-4912"
+    },
+    "admin_contact": {
+      "id": "EMP-HU-002",
+      "name": "Ashley English",
+      "email": "ashley.english@tostadogroup.com",
+      "phone": "(694)736-4365x3145"
+    },
+    "team_member_ids": [
+      "EMP-HU-003",
+      "EMP-HU-004",
+      "EMP-HU-005",
+      "EMP-HU-006",
+      "EMP-HU-007",
+      "EMP-HU-008",
+      "EMP-HU-009"
+    ]
+  },
+  {
+    "name": "Procurement",
+    "description": "The Procurement department of Tostado Restaurant Group.",
+    "head": {
+      "id": "EMP-PR-001",
+      "name": "Melissa Gordon",
+      "email": "melissa.gordon@tostadogroup.com",
+      "phone": "212.879.0425x28465"
+    },
+    "admin_contact": {
+      "id": "EMP-PR-002",
+      "name": "Amy Jones",
+      "email": "amy.jones@tostadogroup.com",
+      "phone": "592.324.1997x970"
+    },
+    "team_member_ids": [
+      "EMP-PR-003",
+      "EMP-PR-004",
+      "EMP-PR-005",
+      "EMP-PR-006",
+      "EMP-PR-007",
+      "EMP-PR-008",
+      "EMP-PR-009",
+      "EMP-PR-010",
+      "EMP-PR-011",
+      "EMP-PR-012"
+    ]
+  },
+  {
+    "name": "Real Estate",
+    "description": "The Real Estate department of Tostado Restaurant Group.",
+    "head": {
+      "id": "EMP-RE-001",
+      "name": "Elizabeth Obrien",
+      "email": "elizabeth.obrien@tostadogroup.com",
+      "phone": "(222)554-6862x9661"
+    },
+    "admin_contact": {
+      "id": "EMP-RE-002",
+      "name": "Michael Watson",
+      "email": "michael.watson@tostadogroup.com",
+      "phone": "480-984-3714x926"
+    },
+    "team_member_ids": [
+      "EMP-RE-003",
+      "EMP-RE-004",
+      "EMP-RE-005",
+      "EMP-RE-006",
+      "EMP-RE-007",
+      "EMP-RE-008",
+      "EMP-RE-009",
+      "EMP-RE-010",
+      "EMP-RE-011"
+    ]
+  }
+]

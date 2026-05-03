@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin · Tostado Restaurant Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand__mark">T</span>
+    <div>
+      <div class="brand__name">Tostado Restaurant Group</div>
+      <div class="brand__tag">Department Admin Console</div>
+    </div>
+  </div>
+  <nav class="topbar__nav">
+    <a class="link" href="/">Back to chat</a>
+  </nav>
+</header>
+
+<main class="admin">
+
+  <!-- ============== Login ============== -->
+  <section id="loginCard" class="card">
+    <h2>Sign in</h2>
+    <div class="field">
+      <label for="user">Email</label>
+      <input id="user" type="email" placeholder="firstname.lastname@tostadogroup.com">
+    </div>
+    <div class="field">
+      <label for="pass">Password</label>
+      <input id="pass" type="password" placeholder="••••••••••">
+    </div>
+    <button class="btn" id="loginBtn">Sign in</button>
+    <div id="loginStatus" class="status"></div>
+  </section>
+
+  <!-- ============== Console (post-login) ============== -->
+  <section id="consoleCard" class="hidden">
+    <div class="signed-in">
+      <span id="signedInLabel"></span>
+      <button class="btn btn--ghost" id="logoutBtn">Sign out</button>
+    </div>
+
+    <!-- Resource tabs -->
+    <div class="tabs" role="tablist">
+      <button class="tab is-active" data-tab="stores"      role="tab">Stores</button>
+      <button class="tab"           data-tab="vendors"     role="tab">Vendors</button>
+      <button class="tab"           data-tab="brands"      role="tab">Brands</button>
+      <button class="tab"           data-tab="employees"   role="tab">Employees</button>
+      <button class="tab"           data-tab="departments" role="tab">Departments</button>
+    </div>
+
+    <!-- ====== Stores tab (hybrid form) ====== -->
+    <div class="tabpanel is-active" data-panel="stores">
+
+      <div class="card">
+        <div class="card__header">
+          <h2>Stores</h2>
+          <div class="card__actions">
+            <button class="btn btn--ghost" id="storesRefreshBtn">Refresh list</button>
+            <button class="btn"            id="storesNewBtn">+ Open new store</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="storeFilter">Filter</label>
+          <input id="storeFilter" type="text" placeholder="Type to filter by ID, brand, city...">
+        </div>
+
+        <div id="storesList" class="record-list"></div>
+      </div>
+
+      <!-- Store editor (shared by Create + Edit) -->
+      <div id="storeEditor" class="card hidden">
+        <div class="card__header">
+          <h2 id="storeEditorTitle">Open new store</h2>
+          <button class="btn btn--ghost" id="storeEditorCloseBtn">Close</button>
+        </div>
+
+        <!-- Mode toggle -->
+        <div class="mode-toggle">
+          <button class="mode-toggle__btn is-active" data-mode="visual">Visual fields</button>
+          <button class="mode-toggle__btn"           data-mode="json">Advanced JSON</button>
+        </div>
+
+        <!-- Visual fields mode -->
+        <div id="storeVisual" class="mode-pane is-active">
+          <div class="grid-2">
+            <div class="field">
+              <label for="sf_brand">Brand</label>
+              <select id="sf_brand"></select>
+            </div>
+            <div class="field">
+              <label for="sf_status">Status</label>
+              <select id="sf_status">
+                <option value="active">Active</option>
+                <option value="closed">Closed</option>
+                <option value="remodeling">Remodeling</option>
+                <option value="suspended">Suspended</option>
+              </select>
+            </div>
+          </div>
+
+          <h3 class="section-h">Address</h3>
+          <div class="field">
+            <label for="sf_street">Street</label>
+            <input id="sf_street" type="text" placeholder="123 Main Street">
+          </div>
+          <div class="grid-3">
+            <div class="field">
+              <label for="sf_city">City</label>
+              <input id="sf_city" type="text">
+            </div>
+            <div class="field">
+              <label for="sf_state">State</label>
+              <input id="sf_state" type="text" maxlength="2" placeholder="TX">
+            </div>
+            <div class="field">
+              <label for="sf_zip">ZIP</label>
+              <input id="sf_zip" type="text" maxlength="10">
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="sf_phone">Store phone</label>
+              <input id="sf_phone" type="text" placeholder="(214) 555-0100">
+            </div>
+            <div class="field">
+              <label for="sf_opened">Opening date</label>
+              <input id="sf_opened" type="date">
+            </div>
+          </div>
+
+          <h3 class="section-h">Store manager</h3>
+          <div class="field">
+            <label for="sf_mgr_name">Full name</label>
+            <input id="sf_mgr_name" type="text">
+          </div>
+          <div class="grid-2">
+            <div class="field">
+              <label for="sf_mgr_phone">Phone</label>
+              <input id="sf_mgr_phone" type="text">
+            </div>
+            <div class="field">
+              <label for="sf_mgr_email">Email</label>
+              <input id="sf_mgr_email" type="email">
+            </div>
+          </div>
+
+          <p id="autogenInfo" class="auto-info"></p>
+        </div>
+
+        <!-- JSON mode -->
+        <div id="storeJson" class="mode-pane">
+          <div class="field">
+            <label for="storeJsonTextarea">Full record (deep-merged on save)</label>
+            <textarea id="storeJsonTextarea" rows="22"></textarea>
+          </div>
+        </div>
+
+        <div class="card__footer">
+          <div class="card__footer-left">
+            <button id="storeDeleteBtn" class="btn btn--danger hidden">Close store (soft delete)</button>
+          </div>
+          <div class="card__footer-right">
+            <button class="btn btn--ghost" id="storeCancelBtn">Cancel</button>
+            <button class="btn"            id="storeSaveBtn">Save</button>
+          </div>
+        </div>
+
+        <div id="storeEditorStatus" class="status"></div>
+      </div>
+    </div>
+
+    <!-- ====== Generic JSON tabs (vendors, brands, employees, departments) ====== -->
+    <div class="tabpanel" data-panel="vendors">
+      <div class="card json-tab" data-dataset="vendors">
+        <div class="card__header">
+          <h2>Vendor accounts</h2>
+          <div class="card__actions">
+            <button class="btn btn--ghost"  data-action="refresh">Refresh</button>
+            <button class="btn"             data-action="new">+ New vendor account</button>
+          </div>
+        </div>
+        <p class="hint">
+          Edit phone or internet accounts including their nested <code>login</code>
+          fields. Patches are deep-merged, so updating a single password no longer
+          wipes the username.
+        </p>
+        <div class="field">
+          <label>Filter</label>
+          <input data-action="filter" type="text" placeholder="Filter by store ID, provider, service...">
+        </div>
+        <div class="record-list" data-action="list"></div>
+        <div class="json-editor hidden">
+          <h3 data-action="title"></h3>
+          <textarea data-action="json" rows="20"></textarea>
+          <div class="card__footer">
+            <div class="card__footer-left">
+              <button class="btn btn--danger hidden" data-action="delete">Hard delete</button>
+            </div>
+            <div class="card__footer-right">
+              <button class="btn btn--ghost" data-action="cancel">Cancel</button>
+              <button class="btn"            data-action="save">Save</button>
+            </div>
+          </div>
+          <div class="status" data-action="status"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabpanel" data-panel="brands">
+      <div class="card json-tab" data-dataset="brands">
+        <div class="card__header">
+          <h2>Brands</h2>
+          <div class="card__actions">
+            <button class="btn btn--ghost"  data-action="refresh">Refresh</button>
+            <button class="btn"             data-action="new">+ Add brand</button>
+          </div>
+        </div>
+        <p class="hint">
+          Brands are stored as a dataset. The chatbot's system prompt and
+          store-ID detection regex rebuild from this list automatically.
+          A brand can't be closed while it has active stores.
+        </p>
+        <div class="field">
+          <label>Filter</label>
+          <input data-action="filter" type="text" placeholder="Filter by id, name, category...">
+        </div>
+        <div class="record-list" data-action="list"></div>
+        <div class="json-editor hidden">
+          <h3 data-action="title"></h3>
+          <textarea data-action="json" rows="14"></textarea>
+          <div class="card__footer">
+            <div class="card__footer-left">
+              <button class="btn btn--danger hidden" data-action="delete">Close brand</button>
+            </div>
+            <div class="card__footer-right">
+              <button class="btn btn--ghost" data-action="cancel">Cancel</button>
+              <button class="btn"            data-action="save">Save</button>
+            </div>
+          </div>
+          <div class="status" data-action="status"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabpanel" data-panel="employees">
+      <div class="card json-tab" data-dataset="employees">
+        <div class="card__header">
+          <h2>Employees</h2>
+          <div class="card__actions">
+            <button class="btn btn--ghost"  data-action="refresh">Refresh</button>
+            <button class="btn"             data-action="new">+ Add employee</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>Filter</label>
+          <input data-action="filter" type="text" placeholder="Filter by name, department, title...">
+        </div>
+        <div class="record-list" data-action="list"></div>
+        <div class="json-editor hidden">
+          <h3 data-action="title"></h3>
+          <textarea data-action="json" rows="18"></textarea>
+          <div class="card__footer">
+            <div class="card__footer-left">
+              <button class="btn btn--danger hidden" data-action="delete">Hard delete</button>
+            </div>
+            <div class="card__footer-right">
+              <button class="btn btn--ghost" data-action="cancel">Cancel</button>
+              <button class="btn"            data-action="save">Save</button>
+            </div>
+          </div>
+          <div class="status" data-action="status"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabpanel" data-panel="departments">
+      <div class="card json-tab" data-dataset="departments">
+        <div class="card__header">
+          <h2>Departments</h2>
+          <div class="card__actions">
+            <button class="btn btn--ghost"  data-action="refresh">Refresh</button>
+            <button class="btn"             data-action="new">+ Add department</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>Filter</label>
+          <input data-action="filter" type="text" placeholder="Filter by name...">
+        </div>
+        <div class="record-list" data-action="list"></div>
+        <div class="json-editor hidden">
+          <h3 data-action="title"></h3>
+          <textarea data-action="json" rows="20"></textarea>
+          <div class="card__footer">
+            <div class="card__footer-left">
+              <button class="btn btn--danger hidden" data-action="delete">Hard delete</button>
+            </div>
+            <div class="card__footer-right">
+              <button class="btn btn--ghost" data-action="cancel">Cancel</button>
+              <button class="btn"            data-action="save">Save</button>
+            </div>
+          </div>
+          <div class="status" data-action="status"></div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<script src="js/admin.js" type="module"></script>
+</body>
+</html>

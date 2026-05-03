@@ -1,0 +1,15 @@
+# Optional voice features (Speech-to-Text via HuggingFace Whisper).
+#
+# Install with:
+#     pip install -r requirements-voice.txt
+#
+# System requirement: ffmpeg must be on PATH (used to decode browser audio).
+#   macOS:   brew install ffmpeg
+#   Ubuntu:  sudo apt install ffmpeg
+#   Windows: https://www.gyan.dev/ffmpeg/builds/
+#
+# If you do not install these, the chatbot still works fully via text;
+# the microphone button will just return a 501 with a helpful message.
+
+transformers==4.46.2
+torch==2.5.1

@@ -1,0 +1,34 @@
+# Version control
+.git
+.github
+.gitignore
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+.venv
+venv
+.pytest_cache
+
+# Tests & dev
+tests
+requirements-dev.txt
+pytest.ini
+
+# Generated artifacts (will be created at runtime)
+data
+vector_store
+
+# Local env
+.env
+
+# IDE / OS noise
+.vscode
+.idea
+.DS_Store
+
+# Docs (not needed inside the image)
+docs
+README.md
+LICENSE

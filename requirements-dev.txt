@@ -1,0 +1,4 @@
+# Development & CI dependencies — install with:
+#   pip install -r requirements-dev.txt
+
+pytest==8.3.3

@@ -1,0 +1,60 @@
+# docker-compose.yml
+#
+# One-shot stand-up:
+#     docker compose up --build
+#
+# Then open http://localhost:5000
+#
+# Notes
+# -----
+# * On first run the Ollama service downloads llama3.2:3b (~2 GB).
+# * The `app` service generates synthetic data the first time it boots
+#   if data/stores.json is missing — see docker-entrypoint.sh.
+# * To enable the microphone (server-side STT with HuggingFace Whisper):
+#       docker compose build --build-arg INSTALL_VOICE=true
+#   then bring the stack back up.
+
+services:
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: tostado-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        INSTALL_VOICE: "false"
+    container_name: tostado-app
+    ports:
+      - "5000:5000"
+    environment:
+      OLLAMA_HOST:  http://ollama:11434
+      OLLAMA_MODEL: llama3.2:3b
+      JWT_SECRET:   ${JWT_SECRET:-please-override-me-in-production-please}
+      EMBED_MODEL:  sentence-transformers/all-MiniLM-L6-v2
+      WHISPER_MODEL: openai/whisper-tiny.en
+      TOP_K:        "6"
+    volumes:
+      - ./data:/app/data
+      - ./vector_store:/app/vector_store
+      - hf-cache:/root/.cache/huggingface
+    depends_on:
+      ollama:
+        condition: service_started
+    restart: unless-stopped
+
+volumes:
+  ollama-data:
+  hf-cache:

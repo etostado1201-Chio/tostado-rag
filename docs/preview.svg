@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" font-family="'IBM Plex Sans', system-ui, sans-serif" role="img" aria-label="Tostado Restaurant Group chat UI preview">
+  <title>Tostado Restaurant Group — Internal Knowledge Assistant</title>
+
+  <!-- Page background with subtle warm radial gradients -->
+  <defs>
+    <radialGradient id="bg1" cx="20%" cy="0%" r="60%">
+      <stop offset="0%"   stop-color="#e89b6c" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#e89b6c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bg2" cx="100%" cy="100%" r="60%">
+      <stop offset="0%"   stop-color="#557b3f" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#557b3f" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="card-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6"/>
+      <feOffset dx="0" dy="4" result="o"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.18"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="760" fill="#f4ecdf"/>
+  <rect width="1200" height="760" fill="url(#bg1)"/>
+  <rect width="1200" height="760" fill="url(#bg2)"/>
+
+  <!-- ============================================================== -->
+  <!-- Top bar                                                         -->
+  <!-- ============================================================== -->
+  <g>
+    <rect x="0" y="0" width="1200" height="72" fill="#fbf7ee" fill-opacity="0.7"/>
+    <line x1="0" y1="72" x2="1200" y2="72" stroke="#d8c8ae" stroke-width="1"/>
+
+    <!-- Brand mark -->
+    <rect x="36" y="17" width="38" height="38" rx="6" fill="#2b1d12"/>
+    <text x="55" y="46" font-family="Georgia, serif" font-weight="900" font-size="22" fill="#f4ecdf" text-anchor="middle">T</text>
+
+    <text x="88" y="32" font-family="Georgia, serif" font-weight="700" font-size="17" fill="#2b1d12" letter-spacing="-0.2">Tostado Restaurant Group</text>
+    <text x="88" y="50" font-size="11" fill="#5b4534" letter-spacing="0.5">INTERNAL KNOWLEDGE ASSISTANT</text>
+
+    <!-- Live pill -->
+    <rect x="900" y="22" width="170" height="28" rx="14" fill="#fbf7ee" stroke="#d8c8ae"/>
+    <circle cx="918" cy="36" r="4" fill="#557b3f"/>
+    <circle cx="918" cy="36" r="6" fill="#557b3f" fill-opacity="0.18"/>
+    <text x="932" y="40" font-family="'IBM Plex Mono', monospace" font-size="11" fill="#2b1d12" letter-spacing="0.3">RAG · Llama 3.2</text>
+
+    <!-- TTS toggle -->
+    <text x="1090" y="40" font-size="12" fill="#2b1d12" font-weight="500">Voice replies</text>
+    <rect x="1095" y="29" width="34" height="20" rx="10" fill="#b6471f"/>
+    <circle cx="1119" cy="39" r="8" fill="#fbf7ee"/>
+
+    <text x="1148" y="40" font-size="13" fill="#2b1d12">Admin</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- Sidebar                                                         -->
+  <!-- ============================================================== -->
+  <g transform="translate(36, 104)">
+    <rect width="300" height="540" rx="14" fill="#fbf7ee" stroke="#d8c8ae" filter="url(#card-shadow)"/>
+
+    <!-- Section: Brands -->
+    <text x="24" y="36" font-family="Georgia, serif" font-weight="700" font-size="15" fill="#2b1d12">Brands in this index</text>
+
+    <g transform="translate(24, 56)" font-size="14" fill="#2b1d12">
+      <rect x="0"  y="2"  width="12" height="12" rx="3" fill="#c8932f"/>
+      <text x="22" y="13">Golden Crisp</text>
+      <text x="244" y="13" font-size="12" fill="#5b4534" text-anchor="end">fried chicken</text>
+
+      <rect x="0"  y="30" width="12" height="12" rx="3" fill="#b6471f"/>
+      <text x="22" y="41">Stone &amp; Fire</text>
+      <text x="244" y="41" font-size="12" fill="#5b4534" text-anchor="end">pizza</text>
+
+      <rect x="0"  y="58" width="12" height="12" rx="3" fill="#6b4423"/>
+      <text x="22" y="69">Daybreak Coffee</text>
+      <text x="244" y="69" font-size="12" fill="#5b4534" text-anchor="end">coffee</text>
+
+      <rect x="0"  y="86" width="12" height="12" rx="3" fill="#557b3f"/>
+      <text x="22" y="97">Garden Crate</text>
+      <text x="244" y="97" font-size="12" fill="#5b4534" text-anchor="end">salads</text>
+    </g>
+
+    <!-- Section: Try asking -->
+    <text x="24" y="200" font-family="Georgia, serif" font-weight="700" font-size="15" fill="#2b1d12">Try asking</text>
+
+    <g transform="translate(24, 216)" font-size="13" fill="#2b1d12">
+      <rect x="0" y="0"  width="252" height="40" rx="8" fill="none" stroke="#d8c8ae" stroke-dasharray="3 3"/>
+      <text x="12" y="17">Store manager contact for</text>
+      <text x="12" y="32" font-family="'IBM Plex Mono', monospace" font-size="12">GOLDEN_CRISP-0001</text>
+
+      <rect x="0" y="48" width="252" height="40" rx="8" fill="rgba(182,71,31,0.05)" stroke="#b6471f" stroke-dasharray="3 3"/>
+      <text x="12" y="65" fill="#b6471f">Internet account for</text>
+      <text x="12" y="80" font-family="'IBM Plex Mono', monospace" font-size="12" fill="#b6471f">STONE_FIRE-0007</text>
+
+      <rect x="0" y="96"  width="252" height="40" rx="8" fill="none" stroke="#d8c8ae" stroke-dasharray="3 3"/>
+      <text x="12" y="113">VP of Operations for</text>
+      <text x="12" y="128">Daybreak Coffee</text>
+
+      <rect x="0" y="144" width="252" height="40" rx="8" fill="none" stroke="#d8c8ae" stroke-dasharray="3 3"/>
+      <text x="12" y="161">IT department head &amp; admin</text>
+    </g>
+
+    <!-- Footer note -->
+    <line x1="24" y1="450" x2="276" y2="450" stroke="#d8c8ae"/>
+    <text x="24" y="476" font-size="11" fill="#5b4534" font-style="italic">All credentials shown are synthetic.</text>
+    <text x="24" y="492" font-size="11" fill="#5b4534" font-style="italic">Tostado Restaurant Group is a fictional</text>
+    <text x="24" y="508" font-size="11" fill="#5b4534" font-style="italic">holding company built for portfolio purposes.</text>
+  </g>
+
+  <!-- ============================================================== -->
+  <!-- Chat panel                                                       -->
+  <!-- ============================================================== -->
+  <g transform="translate(372, 104)">
+    <!-- Headline -->
+    <text x="0" y="42" font-family="Georgia, serif" font-weight="400" font-size="38" fill="#2b1d12" letter-spacing="-0.5">Ask anything about</text>
+    <text x="0" y="86" font-family="Georgia, serif" font-style="italic" font-weight="500" font-size="38" fill="#b6471f" letter-spacing="-0.5">any of our 500 stores.</text>
+
+    <text x="0" y="116" font-size="14" fill="#5b4534">Manager phones, district leadership, vendor logins, department contacts —</text>
+    <text x="0" y="133" font-size="14" fill="#5b4534">all retrieved from the corporate index.</text>
+
+    <!-- ===== Bot greeting ===== -->
+    <g transform="translate(0, 162)">
+      <rect width="540" height="64" rx="14" fill="#fbf7ee" stroke="#d8c8ae" filter="url(#card-shadow)"/>
+      <rect x="0" y="48" width="14" height="16" fill="#fbf7ee" stroke="#d8c8ae" stroke-width="0.8"/>
+      <text x="18" y="26" font-size="13.5" fill="#2b1d12">Welcome. I'm the Tostado Restaurant Group assistant. Ask me about</text>
+      <text x="18" y="44" font-size="13.5" fill="#2b1d12">any of the 500 stores across our four brands, vendor accounts, or</text>
+      <text x="18" y="59" font-size="13.5" fill="#2b1d12">corporate departments.</text>
+    </g>
+
+    <!-- ===== User message ===== -->
+    <g transform="translate(180, 248)">
+      <rect width="580" height="44" rx="14" fill="#2b1d12"/>
+      <rect x="566" y="28" width="14" height="16" fill="#2b1d12"/>
+      <text x="18" y="28" font-size="13.5" fill="#f4ecdf">Give me the internet provider, account number and login for store</text>
+      <text x="18" y="40" font-family="'IBM Plex Mono', monospace" font-size="12" fill="#f4ecdf">STONE_FIRE-0007.</text>
+    </g>
+
+    <!-- ===== Bot reply ===== -->
+    <g transform="translate(0, 312)">
+      <rect width="640" height="148" rx="14" fill="#fbf7ee" stroke="#d8c8ae" filter="url(#card-shadow)"/>
+      <rect x="0" y="132" width="14" height="16" fill="#fbf7ee" stroke="#d8c8ae" stroke-width="0.8"/>
+
+      <text x="18" y="26" font-size="13.5" fill="#2b1d12">Internet account for store STONE_FIRE-0007:</text>
+
+      <text x="18" y="50" font-size="13.5" fill="#2b1d12" font-weight="500">Provider: </text>
+      <text x="84" y="50" font-size="13.5" fill="#2b1d12">Comcast Business</text>
+
+      <text x="18" y="68" font-size="13.5" fill="#2b1d12" font-weight="500">Account number: </text>
+      <text x="128" y="68" font-family="'IBM Plex Mono', monospace" font-size="12.5" fill="#2b1d12">INET-7421-9038</text>
+
+      <text x="18" y="86" font-size="13.5" fill="#2b1d12" font-weight="500">Monthly cost: </text>
+      <text x="108" y="86" font-size="13.5" fill="#2b1d12">$284.50</text>
+
+      <text x="18" y="104" font-size="13.5" fill="#2b1d12" font-weight="500">Username: </text>
+      <text x="84" y="104" font-family="'IBM Plex Mono', monospace" font-size="12.5" fill="#2b1d12">tostado.stone_fire-0007</text>
+
+      <line x1="18" y1="116" x2="622" y2="116" stroke="#d8c8ae" stroke-dasharray="3 3"/>
+      <text x="18" y="134" font-family="'IBM Plex Mono', monospace" font-size="11" fill="#5b4534" letter-spacing="0.4">▾ RETRIEVED 4 SOURCES</text>
+    </g>
+
+    <!-- ===== Composer ===== -->
+    <g transform="translate(0, 484)">
+      <rect width="760" height="56" rx="14" fill="#fbf7ee" stroke="#b6471f" stroke-width="1.5" filter="url(#card-shadow)"/>
+      <text x="22" y="34" font-size="14" fill="#5b4534" fill-opacity="0.7">e.g. What's the phone provider and monthly cost for GARDEN_CRATE-0042?</text>
+
+      <!-- Mic button -->
+      <rect x="652" y="7" width="42" height="42" rx="10" fill="#f4ecdf" stroke="#d8c8ae"/>
+      <g transform="translate(665, 18)" stroke="#2b1d12" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 1 a3 3 0 0 0 -3 3 v8 a3 3 0 0 0 6 0 V4 a3 3 0 0 0 -3 -3 z"/>
+        <path d="M15 10 v2 a7 7 0 0 1 -14 0 v-2"/>
+        <line x1="8" y1="19" x2="8" y2="22"/>
+        <line x1="4" y1="22" x2="12" y2="22"/>
+      </g>
+
+      <!-- Send button -->
+      <rect x="704" y="7" width="42" height="42" rx="10" fill="#b6471f"/>
+      <g transform="translate(715, 18)" stroke="#f4ecdf" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="0" y1="10" x2="20" y2="10"/>
+        <polyline points="13 4 20 10 13 16"/>
+      </g>
+    </g>
+
+  </g>
+</svg>

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "golden_crisp",
+    "name": "Golden Crisp",
+    "category": "Fried Chicken",
+    "status": "active"
+  },
+  {
+    "id": "stone_fire",
+    "name": "Stone & Fire",
+    "category": "Pizza",
+    "status": "active"
+  },
+  {
+    "id": "daybreak",
+    "name": "Daybreak Coffee",
+    "category": "Coffee",
+    "status": "active"
+  },
+  {
+    "id": "garden_crate",
+    "name": "Garden Crate",
+    "category": "Salads",
+    "status": "active"
+  }
+]
